@@ -49,9 +49,9 @@ router.get('/:id', async (req, res)=> {
 router.post('/addProduct', authMiddleWare, async (req, res)=> {
     try{
         if (req.user.userEmail !== 'admin@admin.com') return res.status(401).json({message: 'only ADMIN'})
-        const {title, desc, price, type, img} = req.body
+        const {title, desc, price, type, img1, img2, img3, img4} = req.body
 
-        const product = new ProductSchema({img, title, desc, price, type})
+        const product = new ProductSchema({img1, img2, img3, img4, title, desc, price, type})
 
         await product.save()
         res.status(201).json({message: 'Success fully saved', data: product})
@@ -70,7 +70,10 @@ router.post('/addToBasket', authMiddleWare, async (req, res)=> {
         const basket = new BasketSchema({
             productId: product[0]._id,
             email: req.user.userEmail,
-            img: product[0].img,
+            img1: product[0].img1,
+            img2: product[0].img2,
+            img3: product[0].img3,
+            img4: product[0].img4,
             title: product[0].title,
             desc: product[0].desc,
             price: product[0].price,
