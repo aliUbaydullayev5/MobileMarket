@@ -66,7 +66,7 @@ router.post('/login', [
             'sekret key',
             {expiresIn: '1h'}
         )
-        res.json({token, userId: user.id})
+        res.json({token, user: user.email})
 
     }catch (e){
         res.status(400).json({message: '404'})
