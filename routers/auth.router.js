@@ -32,7 +32,7 @@ router.post('/register', [
         res.status(200).json({message: 'User has been successfully created'})
 
     }catch (e){
-        res.status(400).json({message: '404'})
+        res.status(400).json({message: '404 register'})
     }
 })
 
