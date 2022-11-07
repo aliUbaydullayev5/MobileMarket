@@ -27,7 +27,7 @@ router.post('/register', [
         if (condidate) return res.status(400).json({message: 'Such a user exists'})
 
         const hashedPassword = await bcrypt.hash(password, 12)
-        const user = await UserSchema({email, password: hashedPassword})
+        const user = new UserSchema({email, password: hashedPassword})
         await user.save()
         res.status(200).json({message: 'User has been successfully created'})
 
