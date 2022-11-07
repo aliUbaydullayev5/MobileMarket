@@ -6,4 +6,4 @@ const UserSchema = new Schema({
     basket: {type: Types.ObjectId, ref: 'basket'}
 })
 
-export default model('user', UserSchema)
+export default model('userq', UserSchema)
